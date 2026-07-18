@@ -51,10 +51,7 @@ html {
   border-radius: 12px;
   background: var(--bg-card);
   border: 6px solid #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  
 }
 
 /* Fondo de acuarela liso */

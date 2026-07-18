@@ -96,13 +96,13 @@ html {
 
 /* Aplicamos las imágenes específicas a cada puerta */
 #door-left {
-  background-image: url("img/iz.png");
+  background-image: url("img/iz.webp");
   left: 0; /* Pegado al borde izquierdo */
   transform-origin: left center;
 }
 
 #door-right {
-  background-image: url("img/de.png");
+  background-image: url("img/de.webp");
   right: 0; /* Pegado al borde derecho */
   transform-origin: right center;
 }

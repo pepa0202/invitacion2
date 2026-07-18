@@ -13,6 +13,10 @@
   margin: 0;
   padding: 0;
 }
+body, html {
+  overflow-x: hidden;
+  width: 100%;
+}
 
 body {
   background-color: #dcd1be;
@@ -27,6 +31,10 @@ body {
   overflow: auto;
   padding: 15px;
 }
+img {
+    max-width: 100%; /* La imagen nunca será más ancha que la pantalla */
+    height: auto;    /* Mantiene la proporción para que no se vea deforme */
+}
 
 html {
   height: -webkit-fill-available;
@@ -34,8 +42,8 @@ html {
 
 /* Contenedor de la Tarjeta adaptado perfectamente a móviles */
 .card-container {
-  width: 100%;
-  max-width: 360px;
+  width: 95%;
+  max-width: 400px;
   height: 520px; /* Altura fija estable para que no dependa del vh del móvil */
   position: relative;
   perspective: 1500px;
@@ -301,8 +309,8 @@ html {
   top: 265px; /* Ubicación fija calculada al centro de las puertas (95px + 340px / 2) */
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px;
-  height: 70px;
+  width: 110px;
+  height: 120px;
   z-index: 12;
   display: flex;
   justify-content: center;

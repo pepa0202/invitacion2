@@ -44,13 +44,17 @@ html {
 .card-container {
   width: 95%;
   max-width: 400px;
-  height: 520px; /* Altura fija estable para que no dependa del vh del móvil */
+  height: 80vh; /* Altura fija estable para que no dependa del vh del móvil */
   position: relative;
   perspective: 1500px;
   box-shadow: 0 15px 35px rgba(82, 59, 43, 0.3);
   border-radius: 12px;
   background: var(--bg-card);
   border: 6px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 /* Fondo de acuarela liso */

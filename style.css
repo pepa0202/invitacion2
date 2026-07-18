@@ -1,0 +1,528 @@
+:root {
+  --bg-card: #fdfaf4;
+  --wood-light: #f7f1e5;
+  --wood-shadow: #eadeca;
+  --rope-brown: #a67c52;
+  --pink-text: #e68ca3;
+  --blue-text: #6faec7;
+  --dark-brown: #523b2b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #dcd1be;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Evita scrolls e interrupciones en móviles */
+  min-height: -webkit-fill-available;
+  font-family: "Palatino", "Georgia", serif;
+  overflow: auto;
+  padding: 15px;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+/* Contenedor de la Tarjeta adaptado perfectamente a móviles */
+.card-container {
+  width: 100%;
+  max-width: 360px;
+  height: 520px; /* Altura fija estable para que no dependa del vh del móvil */
+  position: relative;
+  perspective: 1500px;
+  box-shadow: 0 15px 35px rgba(82, 59, 43, 0.3);
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 6px solid #fff;
+}
+
+/* Fondo de acuarela liso */
+.watercolor-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fdfbf7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Título superior de la invitación */
+.title-text {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  text-align: center;
+  color: var(--dark-brown);
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-style: italic;
+  z-index: 9;
+  padding: 0 20px;
+  transition: opacity 0.5s ease;
+}
+
+/* PUERTAS DE MADERA (Alineación blindada anti-errores) */
+.door {
+  position: absolute;
+  top: 0px;
+  height: 500px;
+  width: 100%;
+  z-index: 6;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: none;
+  overflow: hidden; /* Evita que la imagen se salga del marco */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Esto baja el contenido al centro de la puerta */
+  align-items: center;
+
+  /* Configuración para la imagen de fondo */
+  background-size: 100% 100%; /* Esto es clave: "estira" la imagen para llenar todo el espacio y oculta los bordes blancos */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se duplique */
+}
+
+/* Aplicamos las imágenes específicas a cada puerta */
+#door-left {
+  background-image: url("img/iz.png");
+  left: 0; /* Pegado al borde izquierdo */
+  transform-origin: left center;
+}
+
+#door-right {
+  background-image: url("img/de.png");
+  right: 0; /* Pegado al borde derecho */
+  transform-origin: right center;
+}
+
+/* Mantenemos las posiciones intactas */
+.door.left-door {
+  left: 0%;
+  transform-origin: left center;
+}
+.door.right-door {
+  right: 0%;
+  transform-origin: right center;
+}
+
+/* Líneas divisorias de tablones */
+.wood-grain-line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-right: 2px solid rgba(82, 59, 43, 0.08);
+  border-left: 2px solid rgba(82, 59, 43, 0.08);
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Opciones de Género */
+.vaquera {
+  color: #ff1493;
+  font-weight: bold;
+}
+
+.vaquero {
+  color: #0047ab;
+  font-weight: bold;
+}
+
+/* Posición del icono en la puerta IZQUIERDA */
+/* --- CONTROL INDIVIDUAL IZQUIERDA --- */
+/* Base para que todos los iconos se comporten igual */
+.custom-icon {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.custom-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- CONTROL INDIVIDUAL IZQUIERDA --- */
+#icono-cactus {
+  top: 250px; /* Distancia desde arriba */
+  left: 40px; /* Distancia desde la izquierda de su puerta */
+  width: 90px; /* Tamaño del cactus */
+}
+
+#icono-vaca {
+  top: 200px; /* Distancia desde arriba */
+  left: 50px; /* Distancia desde la izquierda de su puerta */
+  width: 60px; /* Tamaño de la vaca */
+}
+
+#icono-moño-azul {
+  top: 50px; /* Distancia desde arriba */
+  left: 60px; /* Distancia desde la izquierda de su puerta */
+  width: 80px; /* Tamaño del moño azul */
+  filter: drop-shadow(4px 4px 2px rgba(82, 59, 43, 0.7));
+}
+#icono-estrella-azuld {
+  top:   47px; /* Distancia desde arriba */
+  right: 50px; /* Distancia desde la derecha de su puerta */
+  width: 50px; /* Tamaño de la estrella azul */
+ 
+}
+#icono-estrella-rosad {
+  top:   110px; /* Distancia desde arriba */
+  right: 50px; /* Distancia desde la derecha de su puerta */
+  width: 30px; /* Tamaño de la estrella rosa */
+  
+}
+#icono-estrella-azul1d {
+  top:   180px; /* Distancia desde arriba */
+  right: 60px; /* Distancia desde la derecha de su puerta */
+  width: 50px; /* Tamaño de la estrella azul */
+ 
+}
+#icono-estrella-rosa1d {
+  top:   160px; /* Distancia desde arriba */
+  right: 100px; /* Distancia desde la derecha de su puerta */
+  width: 30px; /* Tamaño de la estrella rosa */
+  
+}
+#icono-estrella-azul2d {
+  top:   370px; /* Distancia desde arriba */
+  right: 80px; /* Distancia desde la derecha de su puerta */
+  width: 40px; /* Tamaño de la estrella azul */
+ 
+}
+#icono-estrella-rosa2d {
+  top:   380px; /* Distancia desde arriba */
+  right: 40px; /* Distancia desde la derecha de su puerta */
+  width: 70px; /* Tamaño de la estrella rosa */
+  
+}
+
+
+/* --- CONTROL INDIVIDUAL DERECHA --- */
+#icono-bota {
+  top: 200px; /* Distancia desde arriba */
+  right: 30px; /* Distancia desde la derecha de su puerta */
+  width: 100px; /* Tamaño  de la bota */
+  filter: drop-shadow(-4px 4px 3px rgba(82, 59, 43, 0.7));
+}
+
+#icono-caballo {
+  top: 300px; /* Distancia desde arriba */
+  right: 40px; /* Distancia desde la derecha de su puerta */
+  width: 100px; /* Tamaño  del caballo */
+  transform: scaleX(-1);
+}
+#icono-moño-rosa {
+  top:   47px; /* Distancia desde arriba */
+  right: 50px; /* Distancia desde la izquierda de su puerta */
+  width: 90px; /* Tamaño del moño rosa */
+  filter: drop-shadow(4px 4px 2px rgba(82, 59, 43, 0.7));
+}
+
+#icono-estrella-azul {
+  top:   110px; /* Distancia desde arriba */
+  left: 50px; /* Distancia desde la izquierda de su puerta */
+  width: 50px; /* Tamaño de la estrella azul */
+ 
+}
+#icono-estrella-rosa {
+  top:   47px; /* Distancia desde arriba */
+  left: 100px; /* Distancia desde la izquierda de su puerta */
+  width: 30px; /* Tamaño de la estrella rosa */
+  
+}
+#icono-estrella-azul1 {
+  top:   170px; /* Distancia desde arriba */
+  left: 100px; /* Distancia desde la izquierda de su puerta */
+  width: 40px; /* Tamaño de la estrella azul */
+ 
+}
+#icono-estrella-rosa1 {
+  top:   180px; /* Distancia desde arriba */
+  left: 50px; /* Distancia desde la izquierda de su puerta */
+  width: 40px; /* Tamaño de la estrella rosa */
+  
+}
+#icono-estrella-azul2 {
+  top:   370px; /* Distancia desde arriba */
+  left: 50px; /* Distancia desde la izquierda de su puerta */
+  width: 60px; /* Tamaño de la estrella azul */
+ 
+}
+#icono-estrella-rosa2 {
+  top:   380px; /* Distancia desde arriba */
+  left: 140px; /* Distancia desde la izquierda de su puerta */
+  width: 20px; /* Tamaño de la estrella rosa */
+  
+}
+
+/* Ajuste del contenedor centrado */
+.star-center {
+  position: absolute;
+  top: 100px; /* Esto la sitúa justo en el centro vertical de las puertas */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20; /* Esto garantiza que esté SIEMPRE encima de las puertas (que tienen z-index 6) */
+  pointer-events: none; /* Esto es vital: permite que los clics pasen a través de la estrella hacia el candado */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0; /* ASEGÚRATE de poner esto para que no empuje nada */
+  padding: 0;
+  transition: opacity 0.5s ease;
+}
+
+.star-img {
+  width: 300%;
+  height: 300%;
+  object-fit: contain;
+  filter: drop-shadow(0px 4px 3px rgba(82, 59, 43, 0.7));
+}
+
+/* CANDADO UBICADO EXACTAMENTE EN LA UNIÓN DE LAS PUERTAS */
+.lock-zone {
+  position: absolute;
+  top: 265px; /* Ubicación fija calculada al centro de las puertas (95px + 340px / 2) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 70px;
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.lock-img {
+  width: 300%; /* Controla qué tan grande se ve el candado dentro del cuadro */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(-4px 4px 1px rgba(82, 59, 43, 0.7));
+}
+
+.lock-core {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.lock-zone.hovered .lock-body {
+  box-shadow: 0 0 15px #ffd700;
+}
+
+/* TEXTO INTERIOR */
+.interior-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.content-box {
+  text-align: center;
+  color: var(--dark-brown);
+  width: 100%;
+}
+
+.content-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 1rem;
+}
+
+.rope-divider {
+  width: 100px;
+  height: 2px;
+  border-top: 2px dashed var(--rope-brown);
+  margin: 15px auto;
+}
+
+.details p {
+  font-size: 1rem;
+  margin: 8px 0;
+}
+
+.cactus-decor {
+  font-size: 2.2rem;
+  margin-top: 10px;
+}
+
+/* ANIMACIONES DE APERTURA */
+.card-container.open .left-door {
+  transform: rotateY(-140deg);
+}
+
+.card-container.open .right-door {
+  transform: rotateY(140deg);
+}
+
+.card-container.open .lock-zone {
+  transform: translate(-50%, 140px) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-container.open .title-text {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.card-container.open .star-center {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* CONTENEDOR DE LA LLAVE INFERIOR */
+.key-container {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+}
+
+.key-vintage {
+  width: 80px;           /* Ajusta el ancho según qué tan grande quieras la llave */
+  height: auto;
+  cursor: grab;
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.key-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(50deg);
+  /* ESTAS LÍNEAS SON VITALES: */
+  pointer-events: none;       
+  -webkit-user-drag: none;    /* Esto es lo que entiende Chrome/Safari/Edge */
+  user-select: none;
+}
+
+
+
+body.invitation-open .key-container {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* --- 1. ESTILOS DEL MENSAJE DE BIENVENIDA --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+  z-index: 1000; /* Asegura que esté por encima de TODO */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-content {
+  background: var(--wood-light);
+  border: 4px solid var(--rope-brown);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.modal-content h3 {
+  color: var(--dark-brown);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: var(--dark-brown);
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.modal-content button {
+  background: var(--dark-brown);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* --- 2. ANIMACIÓN DE LA HERRADURA (LLAMANDO A LA LLAVE) --- */
+@keyframes shakeAndGlow {
+  0% { transform: scale(1) rotate(0deg); filter: drop-shadow(-4px 4px 1px rgba(82, 59, 43, 0.7)); }
+  25% { transform: scale(1.1) rotate(-15deg); filter: drop-shadow(0px 0px 15px rgba(255, 215, 0, 0.9)); }
+  50% { transform: scale(1.1) rotate(15deg); filter: drop-shadow(0px 0px 15px rgba(255, 215, 0, 0.9)); }
+  75% { transform: scale(1.1) rotate(-15deg); filter: drop-shadow(0px 0px 15px rgba(255, 215, 0, 0.9)); }
+  100% { transform: scale(1) rotate(0deg); filter: drop-shadow(-4px 4px 1px rgba(82, 59, 43, 0.7)); }
+}
+
+/* Esta clase se añadirá con JavaScript cuando agarren la llave */
+.lock-zone.calling-key .lock-img {
+  animation: shakeAndGlow 0.8s infinite; /* Se mueve y brilla en dorado */
+}
+#mute-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000; /* Asegura que esté encima de todo */
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--dark-brown);
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Esta clase es la que usaremos para ocultarlo/mostrarlo */
+#mute-btn.hidden {
+  display: none;
+}
+
+

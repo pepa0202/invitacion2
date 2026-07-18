@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación Vaquera - Revelación de Género</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="welcome-modal" class="modal-overlay">
+      <div class="modal-content">
+        <h3>¡Hola! 🤠</h3>
+        <p>
+          Para descubrir la sorpresa, toma la llave y arrástrala hacia la
+          herradura.
+        </p>
+        <button id="close-modal-btn">¡Entendido!</button>
+      </div>
+    </div>
+
+    <div id="card" class="card-container">
+      <div class="watercolor-bg"></div>
+
+      <div class="title-text">
+        <span class="vaquera">¿Vaquera</span> o
+        <span class="vaquero">Vaquero?</span>
+      </div>
+
+      <!-- Puertas -->
+      <!-- izquierda -->
+      <div class="door left-door" id="door-left">
+        <div id="icono-cactus" class="custom-icon">
+          <img src="img/cactus.png" alt="Cactus" />
+        </div>
+
+        <div id="icono-vaca" class="custom-icon">
+          <img src="img/vaca.png" alt="Vaca" />
+        </div>
+
+        <div id="icono-moño-azul" class="custom-icon">
+          <img src="img/moño azul.png" alt="Moño Azul" />
+        </div>
+
+        <div id="icono-estrella-azul" class="custom-icon">
+          <img src="img/estrella azul.png" alt="Estrella Azul" />
+        </div>
+
+        <div id="icono-estrella-rosa" class="custom-icon">
+          <img src="img/estrella rosa.png" alt="Estrella Rosa" />
+        </div>
+
+        <div id="icono-estrella-azul1" class="custom-icon">
+          <img src="img/estrella azul.png" alt="Estrella Azul" />
+        </div>
+
+        <div id="icono-estrella-rosa1" class="custom-icon">
+          <img src="img/estrella rosa.png" alt="Estrella Rosa" />
+        </div>
+
+        <div id="icono-estrella-azul2" class="custom-icon">
+          <img src="img/estrella azul.png" alt="Estrella Azul" />
+        </div>
+
+        <div id="icono-estrella-rosa2" class="custom-icon">
+          <img src="img/estrella rosa.png" alt="Estrella Rosa" />
+        </div>
+      </div>
+      <!-- derecha -->
+      <div class="door right-door" id="door-right">
+        <div id="icono-bota" class="custom-icon">
+          <img src="img/bota.png" alt="Bota" />
+        </div>
+
+        <div id="icono-caballo" class="custom-icon">
+          <img src="img/caballo.png" alt="Caballo" />
+        </div>
+
+        <div id="icono-moño-rosa" class="custom-icon">
+          <img src="img/moño rosa.png" alt="Moño Rosa" />
+        </div>
+        <div id="icono-estrella-azuld" class="custom-icon">
+          <img src="img/estrella azul.png" alt="Estrella Azul" />
+        </div>
+
+        <div id="icono-estrella-rosad" class="custom-icon">
+          <img src="img/estrella rosa.png" alt="Estrella Rosa" />
+        </div>
+
+        <div id="icono-estrella-azul1d" class="custom-icon">
+          <img src="img/estrella azul.png" alt="Estrella Azul" />
+        </div>
+
+        <div id="icono-estrella-rosa1d" class="custom-icon">
+          <img src="img/estrella rosa.png" alt="Estrella Rosa" />
+        </div>
+
+        <div id="icono-estrella-azul2d" class="custom-icon">
+          <img src="img/estrella azul.png" alt="Estrella Azul" />
+        </div>
+
+        <div id="icono-estrella-rosa2d" class="custom-icon">
+          <img src="img/estrella rosa.png" alt="Estrella Rosa" />
+        </div>
+      </div>
+
+      <!-- Estrella Centrada -->
+      <div class="star-center">
+        <img src="img/estrella.png" alt="Estrella" class="star-img" />
+      </div>
+
+      <div class="interior-content">
+        <div class="content-box">
+          <h2>¡Estás Invitado!</h2>
+          <p class="subtitle">Acompáñanos a descubrir la gran sorpresa</p>
+          <div class="rope-divider"></div>
+          <div class="details">
+            <p><strong>FECHA:</strong> Sábado, 15 de Octubre</p>
+            <p><strong>HORA:</strong> 4:00 PM</p>
+            <p><strong>LUGAR:</strong> Rancho Los Portales</p>
+          </div>
+          <div class="cactus-decor">🌵</div>
+        </div>
+      </div>
+
+      <div class="lock-zone" id="lock-zone">
+        <div class="lock-body">
+          <div id="lock-shackle" class="shackle"></div>
+          <div class="lock-core">
+            <img src="img/herradura.png" alt="Candado" class="lock-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN CARD-CONTAINER -->
+
+    <!-- LA LLAVE ESTÁ AFUERA PARA QUE NO SE PIERDA -->
+    <div id="key-container" class="key-container">
+      <div id="key" class="key-vintage" draggable="true">
+        <!-- Nueva imagen de la llave -->
+        <img src="img/LLAVE.png" alt="Llave" class="key-img" />
+      </div>
+    </div>
+
+    <!-- Archivos de audio -->
+<audio id="bg-music" loop>
+  <source src="audio/fondo.mp3" type="audio/mpeg">
+</audio>
+<audio id="sfx-click" src="audio/click.mp3"></audio>
+<audio id="sfx-open" src="audio/bebe.mp3"></audio>
+<!-- Botón de silenciar (oculto inicialmente) -->
+<button id="mute-btn" class="hidden">🔊</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

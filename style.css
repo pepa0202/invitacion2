@@ -532,5 +532,81 @@ body.invitation-open .key-container {
 #mute-btn.hidden {
   display: none;
 }
+/* --- LAYOUT ASIMÉTRICO Y FONDOS DE LOS CUADROS --- */
+.interior-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.interior-grid-asym {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 8px 0;
+}
 
+.interior-panel {
+  border: 1px dashed var(--rope-brown);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--dark-brown);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(82, 59, 43, 0.08);
+}
+
+/* 1. FONDO CON IMAGEN PARA EL CUADRO IZQUIERDO (Mensaje + Adornos) */
+.panel-message {
+  grid-row: span 2;
+  justify-content: space-between;
+  padding: 12px 10px;
+  height: 100%;
+  
+  /* Imagen de fondo */
+  background-image: url('img/texto.webp'); 
+  background-size: cover;          /* Hace que la imagen cubra todo el cuadro sin deformarse */
+  background-position: center;     /* Centra la imagen */
+  background-repeat: no-repeat;
+}
+
+/* 2. FONDO CON IMAGEN PARA EL CUADRO SUPERIOR DERECHO (Mapa) */
+.panel-map-section {
+  padding: 4px;
+  
+  /* Imagen de fondo (puedes usar la misma o una diferente) */
+ background-image: 
+    linear-gradient(rgba(252, 248, 242, 0.6), rgba(252, 248, 242, 0.6)), 
+    url('img/a.webp');
+    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+     
+
+/* 3. FONDO CON IMAGEN PARA EL CUADRO INFERIOR DERECHO (Detalles y RSVP) */
+.panel-details-section {
+  justify-content: space-around;
+  padding: 6px;
+  
+  /* Imagen de fondo */
+  background-image: url('img/texto.webp'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

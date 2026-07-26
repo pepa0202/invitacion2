@@ -576,6 +576,7 @@ body.invitation-open .key-container {
   justify-content: space-between;
   padding: 12px 10px;
   height: 100%;
+  font-size: 15px;
   
   /* Imagen de fondo */
   background-image: url('img/texto.webp'); 

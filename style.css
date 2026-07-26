@@ -610,4 +610,5 @@ body.invitation-open .key-container {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-size: 13px;
 }
